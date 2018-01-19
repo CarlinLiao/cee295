@@ -1,0 +1,64 @@
+\documentclass{CE295_HW_template}
+
+\newcommand{\hmwkNum}{1}
+\newcommand{\hmwkTitle}{HW \hmwkNum: Title of Homework} % Assignment title
+\newcommand{\hmwkDueDate}{January 1, 2000} % Due date
+\newcommand{\hmwkAuthorName}{John Smith} % Your name
+\newcommand{\SID}{12345678} % Your SID
+
+\title{
+\vspace{-0.5cm}
+\textbf{\hmwkTitle}
+\author{} % Leave this blank
+\date{} % Leave this blank
+\vspace{-1cm}
+}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+%---------------
+% PROBLEM 1
+%---------------
+
+\begin{Problem}[Problem Name]
+\begin{Section}
+Listing~\ref{lst:py_ex} shows Python code.
+
+\begin{lstlisting}[caption={Python Example},label=lst:py_ex]
+# This is Python code
+def my_func(a,b):
+    return
+\end{lstlisting}
+\end{Section}
+
+\begin{Section}
+Listing~\ref{lst:m_ex} shows Matlab code.
+\begin{lstlisting}[language=Matlab,caption={Matlab Example},label=lst:m_ex]
+% This is Matlab code
+function result = myfunc(arg1,arg2)
+result = 1
+\end{lstlisting}
+
+\lipsum[1]
+\end{Section}
+\end{Problem}
+
+%---------------
+% PROBLEM 2
+%---------------
+
+\begin{Problem}[Problem Name]
+\lipsum[2]
+
+\problemAnswer{
+\begin{center}
+\includegraphics[width=0.75\columnwidth]{example_figure.png} % Example image
+\end{center}
+
+\lipsum[3-5]
+}
+\end{Problem}
+
+\end{document}

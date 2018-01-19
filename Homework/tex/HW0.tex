@@ -1,0 +1,189 @@
+%% LyX 1.6.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{textcomp}
+\usepackage{relsize}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\def\labnb{0}
+\usepackage{hyperref} 
+\usepackage{ulem}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{color, colortbl}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\green}[1]{{\color{green}#1}}
+
+%%% HEADER
+\usepackage[textwidth=6.5in,textheight=7.5in,head=32pt,foot=24pt]{geometry}
+\usepackage{fancyhdr}
+\setlength{\headheight}{24pt}
+\pagestyle{fancy}
+\lhead{CE 295: Energy Systems and Control \\ University of California, Berkeley}
+\rhead{Spring 2015 \\ Professor Scott Moura}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+\title{\Large HW 0: Electronic Submission \& Matlab Review}
+\author{Ungraded}
+\date{}
+
+
+\renewcommand{\headrulewidth}{0.5pt}
+%\newcommand{\answer}[1]{\par\begin{center}\framebox{\parbox{5in}{{\bfseries \footnotesize Answer: }\textit{#1}}}\end{center}}
+\newcommand{\answer}[1]{}
+\newcommand{\inset}[2]{{\in\{{#1},\cdots,{#2}\} }}
+
+\newcounter{prob}
+\setcounter{prob}{1}
+\def\prob{\textbf{Problem \arabic{prob}: }\stepcounter{prob}}
+
+%\topmargin = -27 pt
+%\leftmargin = -0.5 in
+%\rightmargin= 1 in
+%\oddsidemargin =  -0.10 in \textheight = 8.5 in \textwidth = 6.5in
+
+\setlength{\parindent}{0mm}
+
+\addtolength{\parskip}{0.5\baselineskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+%\section{Computer account, course website, electronic submission }
+
+
+This review gives you a chance to practice basic Matlab programming. This review is optional and not graded. However, you are welcome to submit the programs described below as part of your report and zipped code; they will not be ``graded'', but they will be corrected and returned to you. This \textquotedblleft{}assignment\textquotedblright{} is intended to familiarize you with: 
+\begin{itemize}
+\item Matlab
+\item The class website: \href{http://bcourses.berkeley.edu}{http://bcourses.berkeley.edu}
+\item The electronic submission of lab assignment through bCourses. Submission instructions are available here: \href{http://guides.instructure.com/m/4212/l/41972-how-do-i-submit-an-online-assignment}{http://guides.instructure.com/m/4212/l/41972-how-do-i-submit-an-online-assignment}.
+\item Use the report template \texttt{HW{\textunderscore}Report{\textunderscore}Template.doc}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Useful commands }
+\begin{description}
+\item [{General.}] \texttt{help, clc, clear, fprintf }
+\item [{Math~functions.}] \texttt{cos, sin, tan, exp, log, log10, sqrt,
+abs, sign}
+\item [{Arrays.}] \texttt{colon, linspace, logspace, length, size, sum,
+ones, zeros, .{*}, ./, .\textasciicircum{} }
+\item [{Matrix~algebra.}] \texttt{transpose, det, inv }
+\item [{Plots.}] \texttt{plot, hold, subplot, semilogx, semilogy, loglog,
+title, legend, xlabel, ylabel} 
+\end{description}
+
+%%%
+\prob \textbf{Arrays}
+\begin{enumerate}
+\renewcommand{\theenumi}{(\alph{enumi})}
+\item Enter the following matrices:\[
+D=\left[\begin{array}{ccc}
+2 & 6 & -3\\
+3 & 9 & -1\end{array}\right],\quad E=\left[\begin{array}{cc}
+1 & 2\\
+3 & 4\end{array}\right],\quad F=\left[\begin{array}{cc}
+-5 & 5\\
+5 & 3\end{array}\right]\]
+
+\item Extract the following 2x2 matrix from $D$ (using the colon notation):\[
+\left[\begin{array}{cc}
+2 & 6\\
+3 & 9\end{array}\right]\]
+and assign it to $G$.
+\item Create the following matrix $H$ using the matrices $E,F,$ and $G$. Use the function \texttt{blkdiag} or the colon notation to create
+this matrix.\[
+H=\left[\begin{array}{rrrrrr}
+2 & 3 & 0 & 0 & 0 & 0\\
+6 & 9 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 2 & 0 & 0\\
+0 & 0 & 3 & 4 & 0 & 0\\
+0 & 0 & 0 & 0 & -5 & 5\\
+0 & 0 & 0 & 0 & 5 & 3\end{array}\right]\]
+
+\end{enumerate}
+
+%%%
+\prob \textbf{Plotting}
+
+Plot $\sin(x)$ and $\cos(x)$ between $x = -3\pi$ and
+$x = +3\pi$ on the same graph, using two different colors. Include a legend to distinguish between the two curves. Add $x$ and $y$ labels, and a title to the plot. \textit{Axis labels are the most important piece of data in a plot.}
+
+%%%
+\prob \textbf{Functions}
+Write a function \texttt{sumSquare} that takes as input $n$ and returns~$y$:\[
+y=\frac{\pi^{2}}{6}-\left(1+\frac{1}{4}+\cdots+\frac{1}{n^{2}}\right)=\frac{\pi^{2}}{6}-\sum_{k=1}^{n}\frac{1}{k^{2}}\]
+Test the function for $n = 5$.
+
+%%%
+\prob \textbf{RLC Circuit}
+This problem is based upon the excellent \href{http://ctms.engin.umich.edu/CTMS/index.php?example=Introduction\&section=SystemModeling}{\blue{Control Tutorials for Matlab}}\footnote{\href{http://ctms.engin.umich.edu/CTMS/index.php?example=Introduction\&section=SystemModeling}{http://ctms.engin.umich.edu/CTMS/index.php?example=Introduction\&section=SystemModeling}}. We will now consider a simple series combination of three passive electrical elements: a resistor, an inductor, and a capacitor, known as an RLC Circuit.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.27\textwidth]{../../img/RLC.png}
+\end{center}
+\end{figure}
+
+Since this circuit is a single loop, each node only has one input and output; therefore, application of Kirchoff's current law shows that the current is the same throughout the circuit at any given time, $i(t)$. Now applying Kirchoff's voltage law around the loop and using the sign conventions indicated in the diagram, we arrive at the following governing equation.
+\begin{equation}
+V(t) - L \frac{di}{dt} - R i - \frac{1}{C} \int i dt = 0
+\end{equation}
+We note that that the governing equation for the RLC circuit is a so-called ``second order system,'' to be explained in lecture. The state-space representation is found by choosing the charge $q$ and current $i$ as the state variables.
+
+\begin{equation}
+\mathbf{x} = \left[ \begin{array}{c} q \\ i \end{array}\right]
+\end{equation}
+where, $q = \int i dt$. The state equation is therefore:
+
+\begin{equation}
+\mathbf{\dot{x}} = \left[ \begin{array}{c} i \\ \frac{di}{dt} \end{array} \right] = \left[ \begin{array}{cc} 0 & 1 \\ 
+-\frac{1}{LC} & -\frac{R}{L} \end{array} \right] \left[ \begin{array}{c} q \\ i \end{array} \right] + \left[ \begin{array}{c} 0 \\ \frac{1}{L} \end{array} \right] V(t) \label{eqn:stateeqn}
+\end{equation}
+
+We choose the current as output as follows:
+\begin{equation}\label{eqn:output}
+y = \left[ \begin{array}{cc} 0 & 1 \end{array} \right] \left[ \begin{array}{c} q \\ i \end{array} \right]
+\end{equation}
+Now we enter the equations derived above into an m-file for MATLAB. Save this m-file as \texttt{rlc.m}
+
+\begin{enumerate}
+\renewcommand{\theenumi}{(\alph{enumi})}
+\item In Matlab, assign the following numerical values for each variable: $R$ = 0.2$\Omega$, $L = 1$H, $C = 1$F.
+\item Equation (\ref{eqn:stateeqn}) takes the form of $\dot{\mathbf{x}} = \textbf{A} \textbf{x} + \textbf{B} V(t)$, and (\ref{eqn:output}) has the form $y = \textbf{C} \textbf{x}$. In Matlab, use your variable definitions to compute matrices $\textbf{A}$, $\textbf{B}$, $\textbf{C}$.
+\item Create a state-space object for this linear system, using command \texttt{ss}. Read the documentation.
+\item Now we simulate this linear system, using the \texttt{lsim} command.
+\end{enumerate}
+
+\begin{lstlisting}
+t = 0:0.01:50;                 % simulation time = 50 seconds
+V = ones(size(t));             % V = 1, a step input in voltage
+sys = ss(A,B,C,D);             % construct a system model
+[y, tsim, x] = lsim(sys,V,t);  % simulate
+\end{lstlisting}
+Provide a plot of the inductor current, $y = i$, versus time in your report. Use clearly defined axis labels.
+
+
+\section*{Deliverables}
+Submit the following on bSpace. Zip your code. Be sure that the function files are named exactly as specified (including spelling and case), and make sure the function declaration is exactly as specified.
+
+\texttt{LASTNAME{\textunderscore}FIRSTNAME{\textunderscore}HW0.PDF}\\
+\texttt{LASTNAME{\textunderscore}FIRSTNAME{\textunderscore}HW0.ZIP} which contains:\\ 
+-- \texttt{sumSquare.m}\\
+-- \texttt{rlc.m}\\
+
+\end{document}
