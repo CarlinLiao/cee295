@@ -25,7 +25,7 @@
 % Set up the header and footer
 \pagestyle{fancy}
 \lhead{\hmwkAuthorName\\SID: \SID} % Top center head
-\rhead{Homework \hmwkNum\\Due: \hmwkDueDate} % Top right header
+\rhead{Homework \hmwkNum\\CEE 295 Spring 2018} % Top right header
 \lfoot{\lastxmark} % Bottom left footer
 \cfoot{} % Bottom center footer
 \rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
